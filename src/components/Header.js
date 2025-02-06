@@ -8,7 +8,7 @@ const Header = () => {
       <a href="/" className="text-decoration-none">
   <h1 className="m-0">DayFlow</h1>
 </a>
-        <button className="btn btn-primary">Commencer</button>
+        
       </div>
     </header>
   );
