@@ -9,6 +9,9 @@ import Chatbot from './pages/Chatbot';
 import AboutPage from './pages/AboutPage'; 
 import LoginPage from './pages/LoginPage'; 
 import Register from './pages/Register'; 
+import ProfilPage from './pages/ProfilPage';
+import CalendarEvents from './pages/CalendarEvents';
+
 
 const App = () => {
   return (
@@ -25,6 +28,8 @@ const App = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profilpage" element={<ProfilPage />} />
+            <Route path="/calendarevent" element={<CalendarEvents />} />
           </Routes>
         </main>
 

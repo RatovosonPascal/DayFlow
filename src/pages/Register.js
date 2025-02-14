@@ -58,6 +58,7 @@ const Register = () => {
               placeholder="Entrez votre email"
             />
           </div>
+          
 
           <div className="mb-3">
             <label htmlFor="password" className="form-label">Mot de passe</label>

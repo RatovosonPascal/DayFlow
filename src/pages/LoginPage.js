@@ -25,7 +25,7 @@ const LoginPage = () => {
       // Si la connexion réussit (exemple de redirection vers le tableau de bord)
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token); // Sauvegarder le token d'authentification
-        navigate("/"); // Redirection vers le dashboard
+        navigate("/profilpage"); // Redirection vers le dashboard
       }
     } catch (err) {
       setError("Identifiants incorrects. Veuillez réessayer.");

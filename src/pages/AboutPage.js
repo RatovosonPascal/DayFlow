@@ -10,15 +10,15 @@ const AboutPage = () => {
       <div className="row">
         <div className="col-md-4 mb-4">
           <div className="feature p-3 border rounded">
-            <h4>Gestion de Calendrier</h4>
-            <p>Synchronisez facilement vos événements avec Google Calendar.</p>
+            <h4>Voir la méteo</h4>
+            <p>Vous pouvez voir la méteo du jour</p>
           </div>
         </div>
         <div className="col-md-4 mb-4">
               <Link to="/chatbot" className="text-decoration-none">
                 <div className="feature p-3 border rounded">
-                  <h4>Reconnaissance Vocale</h4>
-                  <p>Ajoutez des événements et interagissez avec l'application par commande vocale.</p>
+                  <h4>Chatbot </h4>
+                  <p>Discuter tranquillement avec un Chatbot</p>
                 </div>
               </Link>
             </div>
@@ -34,7 +34,7 @@ const AboutPage = () => {
    <div className="container text-center mt-5">
 
 <Link to="/register" className="btn btn-primary btn-lg">
-  Découvrez DayFlow
+  Register
 </Link>
 
 </div>
