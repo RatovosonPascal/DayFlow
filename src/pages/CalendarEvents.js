@@ -37,8 +37,12 @@ const CalendarEvents = () => {
         <ul>
           {todayEvents.map((event) => (
             <li key={event.id}>
-              <strong>{event.summary}</strong> - {event.start?.dateTime || event.start?.date}
-            </li>
+            <strong>{event.summary}</strong> -{" "}
+            {typeof event.start === "object"
+              ? JSON.stringify(event.start) // Convert object to string for debugging
+              : event.start?.dateTime || event.start?.date}
+          </li>
+          
           ))}
         </ul>
       )}

@@ -10,6 +10,8 @@ const ProfilPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       const token = localStorage.getItem("token"); // Récupération du token
+      console.log('Token dans localStorage:', token);
+
 
       if (!token) {
         navigate("/login"); // Redirection vers login si non authentifié
@@ -46,7 +48,7 @@ const ProfilPage = () => {
 
         {user ? (
           <div>
-            <p><strong>Nom:</strong> {user.name}</p>
+            <p><strong>Nom:</strong> {user.username}</p>
             <p><strong>Email:</strong> {user.email}</p>
             
 
