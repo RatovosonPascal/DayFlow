@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+
+ 
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   // Fonction pour gérer l'envoi du formulaire de connexion
@@ -31,6 +35,9 @@ const LoginPage = () => {
       setError("Identifiants incorrects. Veuillez réessayer.");
     }
   };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
@@ -54,16 +61,28 @@ const LoginPage = () => {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 position-relative">
             <label htmlFor="password" className="form-label">Mot de passe</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"} // Change le type en fonction de l'état
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               placeholder="Entrez votre mot de passe"
             />
+            <span
+              onClick={togglePasswordVisibility}
+              style={{
+                position: "absolute",
+                top: "70%",
+                right: "10px",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+              }}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Affiche ou masque l'icône en fonction de l'état */}
+            </span>
           </div>
 
           <button type="submit" className="btn btn-primary w-100">
