@@ -16,11 +16,11 @@ import CalendarEvents from './pages/CalendarEvents';
 const App = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Header commun à toutes les pages */}
+      <div className="flex flex-col min-h-screen"> {/* min-h-screen = min 100vh */}
+        {/* Header commun */}
         <Header />
 
-        {/* Contenu principal */}
+        {/* Contenu principal qui grandit pour pousser le footer en bas */}
         <main className="flex-grow container mx-auto p-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -33,7 +33,7 @@ const App = () => {
           </Routes>
         </main>
 
-        {/* Footer commun */}
+        {/* Footer reste en bas */}
         <Footer />
       </div>
     </Router>
