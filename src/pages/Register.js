@@ -27,10 +27,12 @@ const Register = () => {
     try {
       // Appel API pour l'enregistrement
       const response = await axios.post("http://localhost:8080/api/auth/register", { email, password });
+      console.log(response);
 
       // Si l'inscription réussit
       if (response.status === 201) {
-        navigate("/login"); // Redirige vers la page de connexion après une inscription réussie
+        navigate("/login", { state: { message: "Inscription réussie ! Vous pouvez maintenant vous connecter." } });
+
       }
     } catch (err) {
       setError("Erreur lors de l'inscription. Veuillez réessayer.");
