@@ -71,12 +71,12 @@ const ProfilPage = () => {
             <p><strong>Email:</strong> {user.email}</p>
 
             {/* Bouton Modifier */}
-            <button className="btn btn-warning mx-auto d-block mt-3" onClick={() => setShowModal(true)}>
+            <button className="btn btn-primary mx-auto d-block mt-3" onClick={() => setShowModal(true)}>
               Modifier le profil
             </button>
 
             {/* Bouton Déconnexion */}
-            <button className="btn btn-danger mx-auto d-block mt-3" style={{ width: "200px" }} onClick={handleLogout}>
+            <button className="btn btn-dark mx-auto d-block mt-3" style={{ width: "200px" }} onClick={handleLogout}>
               Se déconnecter
             </button>
           </div>

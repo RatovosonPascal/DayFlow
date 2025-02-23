@@ -22,12 +22,14 @@ const AboutPage = () => {
                 </div>
               </Link>
             </div>
-        <div className="col-md-4 mb-4">
-          <div className="feature p-3 border rounded">
-            <h4>Text-to-Audio</h4>
-            <p>Écoutez vos rappels et événements au format audio.</p>
-          </div>
-        </div>
+            <div className="col-md-4 mb-4">
+              <Link to="/calendarevent" className="text-decoration-none">
+                <div className="feature p-3 border rounded">
+                  <h4>Calendrier des événements</h4>
+                  <p>Consultez et gérez vos événements importants.</p>
+                </div>
+              </Link>
+            </div>
       </div>
     </div>
   </section>

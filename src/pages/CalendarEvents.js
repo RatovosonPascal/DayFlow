@@ -16,7 +16,7 @@ const CalendarEvents = () => {
         setTodayEvents(todayResponse.data);
         setFutureEvents(futureResponse.data);
       } catch (err) {
-        setError("Erreur lors de la récupération des événements");
+        setError("Erreur lors de la récupération des événements.");
       } finally {
         setLoading(false);
       }
@@ -25,40 +25,44 @@ const CalendarEvents = () => {
     fetchEvents();
   }, []);
 
-  if (loading) return <p>Chargement des événements...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>📅 Événements d'aujourd'hui</h2>
-      {todayEvents.length === 0 ? (
-        <p>Aucun événement aujourd'hui.</p>
-      ) : (
-        <ul>
-          {todayEvents.map((event) => (
-            <li key={event.id}>
-            <strong>{event.summary}</strong> -{" "}
-            {typeof event.start === "object"
-              ? JSON.stringify(event.start) // Convert object to string for debugging
-              : event.start?.dateTime || event.start?.date}
-          </li>
-          
-          ))}
-        </ul>
-      )}
+    <div className="container d-flex flex-column min-vh-100">
+      <div className="card p-4 shadow-lg flex-grow-1">
+        <h2 className="text-center mb-4">📅 Événements</h2>
 
-      <h2>🔮 Événements futurs</h2>
-      {futureEvents.length === 0 ? (
-        <p>Aucun événement à venir.</p>
-      ) : (
-        <ul>
-          {futureEvents.map((event) => (
-            <li key={event.id}>
-              <strong>{event.summary}</strong> - {event.start?.dateTime || event.start?.date}
-            </li>
-          ))}
-        </ul>
-      )}
+        {loading && <p className="text-center">Chargement des événements...</p>}
+        {error && <div className="alert alert-danger">{error}</div>}
+
+        {/* Événements d'aujourd'hui */}
+        <h3 className="mt-3">Événements d'aujourd'hui</h3>
+        {todayEvents.length === 0 ? (
+          <p>Aucun événement aujourd'hui.</p>
+        ) : (
+          <ul className="list-group">
+            {todayEvents.map((event) => (
+              <li key={event.id} className="list-group-item">
+                <strong>{event.summary}</strong> -{" "}
+                {new Date(event.start.dateTime?.value || event.start.date?.value).toLocaleString()}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Événements futurs */}
+        <h3 className="mt-4">🔮 Événements futurs</h3>
+        {futureEvents.length === 0 ? (
+          <p>Aucun événement à venir.</p>
+        ) : (
+          <ul className="list-group">
+            {futureEvents.map((event) => (
+              <li key={event.id} className="list-group-item">
+                <strong>{event.summary}</strong> -{" "}
+                {new Date(event.start.dateTime?.value || event.start.date?.value).toLocaleString()}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
