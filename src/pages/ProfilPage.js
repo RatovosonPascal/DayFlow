@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import FeaturesSection from "./FeaturesSection"; // Importation du composant
 
 const ProfilPage = () => {
   const [user, setUser] = useState(null);
@@ -60,7 +61,8 @@ const ProfilPage = () => {
 
   return (
     <div className="container d-flex flex-column min-vh-100">
-      <div className="card p-4 shadow-lg flex-grow-1">
+      {/* Section Profil Utilisateur */}
+      <div className="card p-4 shadow-lg">
         <h2 className="text-center mb-4">Profil de l'utilisateur</h2>
 
         {error && <div className="alert alert-danger">{error}</div>}
@@ -73,11 +75,6 @@ const ProfilPage = () => {
             {/* Bouton Modifier */}
             <button className="btn btn-primary mx-auto d-block mt-3" onClick={() => setShowModal(true)}>
               Modifier le profil
-            </button>
-
-            {/* Bouton Déconnexion */}
-            <button className="btn btn-dark mx-auto d-block mt-3" style={{ width: "200px" }} onClick={handleLogout}>
-              Se déconnecter
             </button>
           </div>
         ) : (
@@ -122,6 +119,16 @@ const ProfilPage = () => {
           </div>
         </div>
       )}
+
+      {/* Section Fonctionnalités */}
+      <FeaturesSection />
+
+      {/* Bouton Déconnexion tout en bas */}
+      <div className="text-center mt-auto mb-3">
+        <button className="btn btn-dark" style={{ width: "200px" }} onClick={handleLogout}>
+          Se déconnecter
+        </button>
+      </div>
     </div>
   );
 };
