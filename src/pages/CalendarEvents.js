@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; 
 
 const CalendarEvents = () => {
   const [todayEvents, setTodayEvents] = useState([]);
   const [futureEvents, setFutureEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -62,6 +64,12 @@ const CalendarEvents = () => {
             ))}
           </ul>
         )}
+        {/* Bouton retour profil */}
+        <div className="text-center mt-auto mb-3">
+        <button className="btn btn-primary mt-4" onClick={() => navigate("/profilpage")}>
+          Retour au profil
+        </button>
+        </div>
       </div>
     </div>
   );
